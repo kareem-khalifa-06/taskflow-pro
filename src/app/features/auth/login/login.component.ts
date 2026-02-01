@@ -1,4 +1,6 @@
+
 import { Component } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,5 +10,8 @@ import { Component } from '@angular/core';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+constructor(public _ReactiveFormsModule:ReactiveFormsModule){}
+ login=new FormControl('');
+
 
 }

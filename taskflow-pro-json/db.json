@@ -1,0 +1,119 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "email": "admin@test.com",
+      "password": "123456",
+      "firstName": "Kareem",
+      "lastName": "Amr",
+      "avatar": "/uploads/avatars/admin.png",
+      "role": "admin",
+      "createdAt": "2026-02-01T10:00:00.000Z",
+      "updatedAt": "2026-02-01T10:00:00.000Z"
+    },
+    {
+      "id": "u2",
+      "email": "manager@test.com",
+      "password": "123456",
+      "firstName": "Sara",
+      "lastName": "Ali",
+      "avatar": "/uploads/avatars/manager.png",
+      "role": "manager",
+      "createdAt": "2026-02-01T10:05:00.000Z",
+      "updatedAt": "2026-02-01T10:05:00.000Z"
+    },
+    {
+      "id": "u3",
+      "email": "member@test.com",
+      "password": "123456",
+      "firstName": "Ahmed",
+      "lastName": "Hassan",
+      "avatar": "/uploads/avatars/member.png",
+      "role": "member",
+      "createdAt": "2026-02-01T10:10:00.000Z",
+      "updatedAt": "2026-02-01T10:10:00.000Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": "p1",
+      "name": "Website Redesign",
+      "description": "Redesign company website",
+      "ownerId": "u1",
+      "teamMembers": ["u1", "u2", "u3"],
+      "status": "active",
+      "startDate": "2026-02-01T00:00:00.000Z",
+      "endDate": "2026-03-01T00:00:00.000Z",
+      "createdAt": "2026-02-01T10:00:00.000Z",
+      "updatedAt": "2026-02-01T10:00:00.000Z"
+    },
+    {
+      "id": "p2",
+      "name": "Mobile App",
+      "description": "Develop company mobile app",
+      "ownerId": "u2",
+      "teamMembers": ["u2", "u3"],
+      "status": "active",
+      "startDate": "2026-02-05T00:00:00.000Z",
+      "endDate": "2026-04-01T00:00:00.000Z",
+      "createdAt": "2026-02-01T10:05:00.000Z",
+      "updatedAt": "2026-02-01T10:05:00.000Z"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "projectId": "p1",
+      "title": "Setup authentication",
+      "description": "Implement JWT auth",
+      "status": "todo",
+      "priority": "high",
+      "assigneeId": "u2",
+      "creatorId": "u1",
+      "dueDate": "2026-02-05T00:00:00.000Z",
+      "estimatedHours": 4,
+      "actualHours": 0,
+      "tags": ["auth", "backend"],
+      "attachments": [],
+      "dependencies": [],
+      "order": 1,
+      "createdAt": "2026-02-01T10:15:00.000Z",
+      "updatedAt": "2026-02-01T10:15:00.000Z"
+    }
+   
+  ],
+  "comments": [
+    {
+      "id": "c1",
+      "taskId": "t1",
+      "userId": "u3",
+      "content": "Please start with login page",
+      "mentions": ["u2"],
+      "createdAt": "2026-02-01T10:20:00.000Z",
+      "updatedAt": "2026-02-01T10:20:00.000Z"
+    }
+  ],
+  "timelogs": [
+    {
+      "id": "tl1",
+      "taskId": "t1",
+      "userId": "u2",
+      "startTime": "2026-02-01T11:00:00.000Z",
+      "endTime": "2026-02-01T12:00:00.000Z",
+      "duration": 60,
+      "description": "Initial setup",
+      "createdAt": "2026-02-01T12:00:00.000Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "n1",
+      "userId": "u2",
+      "type": "assignment",
+      "message": "You were assigned to Setup authentication",
+      "linkTo": "/projects/p1/tasks/t1",
+      "read": false,
+      "createdAt": "2026-02-01T12:05:00.000Z"
+    }
+  ]
+}
