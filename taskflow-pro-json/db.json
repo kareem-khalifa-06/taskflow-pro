@@ -13,6 +13,17 @@
     },
     {
       "id": "u2",
+      "email": "karemkhalifaa@gmail.com",
+      "password": "Kareem20#",
+      "firstName": "Kareem",
+      "lastName": "Amr",
+      "avatar": "/uploads/avatars/admin.png",
+      "role": "admin",
+      "createdAt": "2026-02-01T10:00:00.000Z",
+      "updatedAt": "2026-02-01T10:00:00.000Z"
+    },
+    {
+      "id": "u3",
       "email": "manager@test.com",
       "password": "123456",
       "firstName": "Sara",
@@ -23,7 +34,7 @@
       "updatedAt": "2026-02-01T10:05:00.000Z"
     },
     {
-      "id": "u3",
+      "id": "u4",
       "email": "member@test.com",
       "password": "123456",
       "firstName": "Ahmed",

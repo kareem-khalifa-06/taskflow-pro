@@ -46,10 +46,9 @@ export class LoginComponent {
   });
 
   onSubmit() {
-    console.log(this.loginForm);
     if (this.loginForm.valid) {
-      // console.log('khadija');
-      this._AuthService.login(this.loginForm.value.email!,this.loginForm.value.password!)
+      console.log('khadija');
+      this._AuthService.login(this.loginForm.value.email!,this.loginForm.value.password!).subscribe();
       
     }
   }
