@@ -6,6 +6,6 @@ export interface User {
   lastName: string;
   avatar: string;
   role: 'admin' | 'manager' | 'member';
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: Date|string;
+  updatedAt: Date|string;
 }

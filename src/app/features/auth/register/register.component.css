@@ -1,0 +1,31 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black; /* dark background */
+  padding: 1rem;
+}
+
+/* Form box */
+.form-box {
+  background-color: #F9FAFB;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  text-align:center;
+}
+
+/* Input focus effect */
+.input-group input:focus {
+  border-color: rgb(63, 63, 255);
+  box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+}
+
+/* Optional hover effect for button */
+.btn-primary:hover {
+  background-color: #0066CC;
+  color: #2a2b38;
+  transition: 0.3s;
+}

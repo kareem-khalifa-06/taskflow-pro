@@ -92,7 +92,4 @@ export class AuthService {
   getCurrentUser(): User {
     return JSON.parse(localStorage.getItem('currentUser')!);
   }
-} 
-
-
-
+}

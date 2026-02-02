@@ -43,6 +43,28 @@
       "role": "member",
       "createdAt": "2026-02-01T10:10:00.000Z",
       "updatedAt": "2026-02-01T10:10:00.000Z"
+    },
+    {
+      "id": "0ad83710-60c0-4f36-8479-905ca2870b45",
+      "email": "karemkhalifaa@gmail.com",
+      "password": "Kareem20#",
+      "firstName": "Kareem",
+      "lastName": "Khalifa",
+      "role": "manager",
+      "avatar": "/uploads/avatars/manager.png",
+      "createdAt": "2026-02-02T21:20:15.692Z",
+      "updatedAt": "2026-02-02T21:20:15.692Z"
+    },
+    {
+      "id": "b9d961e5-40aa-4a6c-a487-081c16f49579",
+      "email": "khadijaelbakry19@gmail.com",
+      "password": "Khadija14#",
+      "firstName": "khadija",
+      "lastName": "Elbakry",
+      "role": "member",
+      "avatar": "/uploads/avatars/member.png",
+      "createdAt": "2026-02-02T21:23:04.387Z",
+      "updatedAt": "2026-02-02T21:23:04.387Z"
     }
   ],
   "projects": [
@@ -51,7 +73,11 @@
       "name": "Website Redesign",
       "description": "Redesign company website",
       "ownerId": "u1",
-      "teamMembers": ["u1", "u2", "u3"],
+      "teamMembers": [
+        "u1",
+        "u2",
+        "u3"
+      ],
       "status": "active",
       "startDate": "2026-02-01T00:00:00.000Z",
       "endDate": "2026-03-01T00:00:00.000Z",
@@ -63,7 +89,10 @@
       "name": "Mobile App",
       "description": "Develop company mobile app",
       "ownerId": "u2",
-      "teamMembers": ["u2", "u3"],
+      "teamMembers": [
+        "u2",
+        "u3"
+      ],
       "status": "active",
       "startDate": "2026-02-05T00:00:00.000Z",
       "endDate": "2026-04-01T00:00:00.000Z",
@@ -84,14 +113,16 @@
       "dueDate": "2026-02-05T00:00:00.000Z",
       "estimatedHours": 4,
       "actualHours": 0,
-      "tags": ["auth", "backend"],
+      "tags": [
+        "auth",
+        "backend"
+      ],
       "attachments": [],
       "dependencies": [],
       "order": 1,
       "createdAt": "2026-02-01T10:15:00.000Z",
       "updatedAt": "2026-02-01T10:15:00.000Z"
     }
-   
   ],
   "comments": [
     {
@@ -99,7 +130,9 @@
       "taskId": "t1",
       "userId": "u3",
       "content": "Please start with login page",
-      "mentions": ["u2"],
+      "mentions": [
+        "u2"
+      ],
       "createdAt": "2026-02-01T10:20:00.000Z",
       "updatedAt": "2026-02-01T10:20:00.000Z"
     }
