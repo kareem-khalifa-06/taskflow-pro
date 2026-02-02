@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faEnvelope, faLock, faRegistered, faSignInAlt, faUser, faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faEye, faLock, faRegistered, faSignInAlt, faUser, faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
 import { mustMatchValidator } from './must-match-validator';
 import { UsersService } from '../../../core/services/users.service';
 import { AuthService } from '../../../core/services/auth.service';
@@ -21,7 +21,7 @@ export class RegisterComponent {
     private _AuthService: AuthService,
     private _Router: Router,
   ) {}
- 
+   faEye=faEye
   faUserAstronaut = faUserAstronaut;
   faUser = faUser;
   faEnvelope = faEnvelope;
@@ -83,5 +83,17 @@ export class RegisterComponent {
       this._AuthService.register(user).subscribe()
       this._Router.navigate(['/login'])
     }
+  }
+   showPassword:boolean=false;
+   showPassword2:boolean=false;
+   toggleShowPassword(){
+    this.showPassword=!this.showPassword;
+    console.log(this.showPassword
+    )
+  }
+  toggleShowPassword2(){
+    this.showPassword=!this.showPassword;
+    console.log(this.showPassword
+    )
   }
 }

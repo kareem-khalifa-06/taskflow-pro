@@ -3,22 +3,25 @@ import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faEnvelope,
+  faEye,
   faLock,
   faSignInAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../../../core/services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet, RouterLink } from '@angular/router';
 import { NgClass } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, FontAwesomeModule,NgClass],
+  imports: [ReactiveFormsModule, FontAwesomeModule, RouterOutlet, RouterLink],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+   showPassword=false
+  faEye=faEye
   faEnvelope = faEnvelope;
   faLock = faLock;
   faSignInAlt = faSignInAlt;
@@ -61,6 +64,9 @@ export class LoginComponent {
   }
   get password(){
     return this.loginForm.get('password');
+  }
+  toggleShowPassword(){
+    this.showPassword=!this.showPassword;
   }
  
 }

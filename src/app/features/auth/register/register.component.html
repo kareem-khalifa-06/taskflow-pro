@@ -75,7 +75,7 @@
           </span>
           <input
             placeholder="Create your Password"
-            type="password"
+            type="{{showPassword?'text':'password'}}"
             class="form-control"
             formControlName="password"
             [class.is-valid]="
@@ -85,7 +85,9 @@
               password?.invalid && (password?.dirty || password?.touched)
             "
           />
-
+           <button (click)="toggleShowPassword()">
+            <fa-icon [icon]="faEye"></fa-icon>
+           </button>
           <div class="invalid-feedback">
             Password must contain:
             <ul>
@@ -106,7 +108,7 @@
           </span>
           <input
             placeholder="Confirm your password"
-            type="password"
+            type="{{showPassword2?'text':'password'}}"
             class="form-control"
             formControlName="confirmPassword"
             [class.is-valid]="
@@ -116,7 +118,9 @@
               confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)
             "
           />
-
+           <button (click)="toggleShowPassword2()">
+            <fa-icon [icon]="faEye"></fa-icon>
+           </button>
           <div class="invalid-feedback">
             Passwords must match
           </div>

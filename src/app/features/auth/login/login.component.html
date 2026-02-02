@@ -9,7 +9,7 @@
       <div class="mb-3">
         <label for="email" class="form-label text-light">Email address</label>
         <div class="input-group">
-          <span class="input-group-text bg-primary text-dark">
+          <span class="input-group-text bg-primary text-light">
             <fa-icon [icon]="faEnvelope"></fa-icon>
           </span>
           <input
@@ -29,11 +29,11 @@
       <div class="mb-3">
         <label for="password" class="form-label text-light">Password</label>
         <div class="input-group">
-          <span class="input-group-text bg-primary text-dark">
+          <span class="input-group-text bg-primary text-light">
             <fa-icon [icon]="faLock"></fa-icon>
           </span>
           <input
-            type="password"
+            type="{{showPassword?'text':'password'}}"
             class="form-control"
             formControlName="password"
             [class.is-valid]="
@@ -43,7 +43,9 @@
               password?.invalid && (password?.dirty || password?.touched)
             "
           />
-
+           <button (click)="toggleShowPassword()" class="btn btn-primary" type="button">
+            <fa-icon [icon]="faEye"></fa-icon>
+           </button>
           <div class="invalid-feedback">
             Password must contain:
             <ul>
@@ -56,12 +58,11 @@
           </div>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary mb-2" [disabled]="!loginForm.valid">Log In</button>
+      <button type="submit" class="btn btn-primary mb-2 " [disabled]="!loginForm.valid">Log In</button>
       <div class="d-flex justify-content-between">
-        <a href="/forgot-password" class="text-primary d-block text-center mt-2"
-          >Forgot your password?</a
-        >
-        <a href="/register" class="text-primary d-block text-center mt-2"
+        <a class="text-primary d-block text-center mt-2"
+          routerLink="/forgot-password">Forgot your password?</a> 
+        <a  routerLink="/register" class="text-primary d-block text-center mt-2"
           >Regsiter</a
         >
       </div>
