@@ -14,11 +14,15 @@
           </span>
           <input
             type="email"
-            id="email"
             class="form-control"
-            placeholder="Enter email"
             formControlName="email"
+            [class.is-valid]="email?.valid && (email?.dirty || email?.touched)"
+            [class.is-invalid]="
+              email?.invalid && (email?.dirty || email?.touched)
+            "
           />
+
+          <div class="invalid-feedback">Please enter a valid email.</div>
         </div>
       </div>
 
@@ -30,22 +34,37 @@
           </span>
           <input
             type="password"
-            id="password"
             class="form-control"
-            placeholder="Enter password"
             formControlName="password"
+            [class.is-valid]="
+              password?.valid && (password?.dirty || password?.touched)
+            "
+            [class.is-invalid]="
+              password?.invalid && (password?.dirty || password?.touched)
+            "
           />
+
+          <div class="invalid-feedback">
+            Password must contain:
+            <ul>
+              <li>Uppercase letter</li>
+              <li>Lowercase letter</li>
+              <li>Number</li>
+              <li>Special character</li>
+              <li>Min 8 characters</li>
+            </ul>
+          </div>
         </div>
-      </div> 
-      <button type="submit" class="btn btn-primary mb-2 ">Log In</button>
+      </div>
+      <button type="submit" class="btn btn-primary mb-2" [disabled]="!loginForm.valid">Log In</button>
       <div class="d-flex justify-content-between">
-       
-      <a href="#" class="text-primary d-block text-center mt-2">Forgot your password?</a>
-      <a href="/register" class="text-primary d-block text-center mt-2">Regsiter</a>
-    </div>
-      @if(!loginForm.valid){
-        <p>Invalid Form</p>
-      }
+        <a href="/forgot-password" class="text-primary d-block text-center mt-2"
+          >Forgot your password?</a
+        >
+        <a href="/register" class="text-primary d-block text-center mt-2"
+          >Regsiter</a
+        >
+      </div>
     </form>
   </div>
 </div>

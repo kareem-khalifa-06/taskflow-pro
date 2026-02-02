@@ -1,8 +1,9 @@
+import { Router } from '@angular/router';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { User } from '../../models/user';
 
 import { UsersService } from './users.service';
@@ -16,7 +17,10 @@ export class AuthService {
   constructor(
     private _UsersService: UsersService,
     private _HttpClient: HttpClient,
+    private _Router: Router,
   ) {}
+  private authenticationState = new BehaviorSubject(false);
+  public isAuthenticated$ = this.authenticationState.asObservable();
   register(user: User): Observable<User> {
     return this._HttpClient.post<User>(this.base_url + 'users', user);
   }
@@ -26,20 +30,20 @@ export class AuthService {
   ): Observable<{ token: string; user: User } | null> {
     return this._UsersService.getAllUsers().pipe(
       map((users) => {
-       
         const user = users.find(
           (u) => u.email === email && u.password === password,
         );
         if (!user) return null;
 
-      
         const token = this.generateFakeJwt(user);
 
-      
         localStorage.setItem('accessToken', token);
         localStorage.setItem('currentUser', JSON.stringify(user));
         console.log('stored in localstorage');
-
+        this.authenticationState.next(true);
+        if (this.isAuthenticated$) {
+          this._Router.navigate(['/Home']);
+        }
         return { token, user };
       }),
     );
@@ -52,7 +56,6 @@ export class AuthService {
     const token = this.getToken();
     const user = this.getCurrentUser();
     if (!token || !user) return null;
-
     const payload = JSON.parse(atob(token.split('.')[1]));
     const now = Math.floor(Date.now() / 1000);
     if (payload.exp - now < 300) {
@@ -62,7 +65,7 @@ export class AuthService {
       return newToken;
     }
 
-    return token; 
+    return token;
   }
   private generateFakeJwt(user: User): string {
     const header = btoa(JSON.stringify({ alg: 'HS256', typ: 'JWT' }));

@@ -8,11 +8,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../../../core/services/auth.service';
 import { Router } from '@angular/router';
+import { NgClass } from '@angular/common';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, FontAwesomeModule],
+  imports: [ReactiveFormsModule, FontAwesomeModule,NgClass],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
@@ -48,8 +50,17 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       console.log('khadija');
-      this._AuthService.login(this.loginForm.value.email!,this.loginForm.value.password!).subscribe();
+      this._AuthService.login(this.loginForm.value.email!,this.loginForm.value.password!).subscribe({
+        
+      });
       
     }
   }
+  get email(){
+    return this.loginForm.get('email');
+  }
+  get password(){
+    return this.loginForm.get('password');
+  }
+ 
 }
