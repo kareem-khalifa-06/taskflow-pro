@@ -1,6 +1,6 @@
 export const environment = {
-  production: true,
-  name: 'production',
+  production: false,
+  name: 'staging',
   apiUrl: 'http://localhost:3000/',
   auth: {
     tokenKey: 'access_token',

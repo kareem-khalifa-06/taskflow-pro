@@ -1,3 +1,4 @@
+import { ParsingOptions } from './../../../../node_modules/chart.js/dist/types/index.d';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Route } from '@angular/router';
@@ -11,17 +12,15 @@ import { JwtConfig } from '@auth0/angular-jwt';
 export class AuthService {
   base_url: string = 'http://localhost:3000/';
 
-  constructor(
-    private _HttpClient: HttpClient,
-   
-   ){}
-  register(user:User): Observable<any> {
-    return this._HttpClient.post(`${this.base_url}/users`,{
-      ...user
-    })
-  }
-  login(user:User) {
+  constructor(private _HttpClient: HttpClient) {}
 
+  login(email: string, password: string)  {
+    this._HttpClient.get(this.base_url+'users').subscribe({
+      next:(res)=>{
+        const users= res;
+       console.log(users)
+      }
+    })
   }
   logout() {
     localStorage.removeItem('currentUser');

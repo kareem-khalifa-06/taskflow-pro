@@ -1,1 +1,51 @@
-<p>login works!</p>
+<div class="login-container">
+  <div class="form-box shadow-lg">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="text-center mb-4">
+        <fa-icon [icon]="faSignInAlt" size="3x" class="text-primary"></fa-icon>
+        <h2 class="mt-2 text-black">Log In</h2>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label text-light">Email address</label>
+        <div class="input-group">
+          <span class="input-group-text bg-primary text-dark">
+            <fa-icon [icon]="faEnvelope"></fa-icon>
+          </span>
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            placeholder="Enter email"
+            formControlName="email"
+          />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label text-light">Password</label>
+        <div class="input-group">
+          <span class="input-group-text bg-primary text-dark">
+            <fa-icon [icon]="faLock"></fa-icon>
+          </span>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            placeholder="Enter password"
+            formControlName="password"
+          />
+        </div>
+      </div> 
+      <button type="submit" class="btn btn-primary mb-2 ">Log In</button>
+      <div class="d-flex justify-content-between">
+       
+      <a href="#" class="text-primary d-block text-center mt-2">Forgot your password?</a>
+      <a href="/register" class="text-primary d-block text-center mt-2">Regsiter</a>
+    </div>
+      @if(!loginForm.valid){
+        <p>Invalid Form</p>
+      }
+    </form>
+  </div>
+</div>
