@@ -1,24 +1,36 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-    {
-        path:'',redirectTo:'login',pathMatch:'full'
-    }
-    ,
-    {
-      path:'login',loadComponent: ()=>import('../app/features/auth/login/login.component').then((m)=>
-        m.LoginComponent
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('../app/features/auth/login/login.component').then(
+        (m) => m.LoginComponent,
       ),
-      title:'Login'
-    }
-    ,
-    {
-      path:'register',loadComponent: ()=>import('../app/features/auth/register/register.component').then((m)=>
-        m.RegisterComponent
+    title: 'Login',
+  },
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('../app/features/auth/register/register.component').then(
+        (m) => m.RegisterComponent,
       ),
-      title:'Login'
-    }
-    ,
+    title: 'Register Account',
+  },
+  {
+    path: 'forgot-password',
+    loadComponent: () =>
+      import('../app/features/auth/forgotPassword/forgotPassword.component').then(
+        (m) => m.ForgotPasswordComponent,
+      ),
+    title: 'Forgot Password',
+  },
+ 
   {
     path: '**',
     loadComponent: () =>
@@ -28,3 +40,4 @@ export const routes: Routes = [
     title: 'not Found',
   },
 ];
+

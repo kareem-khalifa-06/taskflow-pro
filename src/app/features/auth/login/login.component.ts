@@ -8,19 +8,16 @@ import {
   faSignInAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../../../core/services/auth.service';
-import { Router, RouterOutlet, RouterLink } from '@angular/router';
-import { NgClass } from '@angular/common';
-import { BehaviorSubject } from 'rxjs';
-
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, FontAwesomeModule, RouterOutlet, RouterLink],
+  imports: [ReactiveFormsModule, FontAwesomeModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-   showPassword=false
+  showPassword=false
   faEye=faEye
   faEnvelope = faEnvelope;
   faLock = faLock;
@@ -53,11 +50,8 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       console.log('khadija');
-      this._AuthService.login(this.loginForm.value.email!,this.loginForm.value.password!).subscribe({
-        
-      });
-      
-    }
+      this._AuthService.login(this.loginForm.value.email!,this.loginForm.value.password!).subscribe({ });
+ }
   }
   get email(){
     return this.loginForm.get('email');

@@ -92,4 +92,30 @@ export class AuthService {
   getCurrentUser(): User {
     return JSON.parse(localStorage.getItem('currentUser')!);
   }
+  changePassword(email: string, newPassword: string): void {
+  this._UsersService.getAllUsers().subscribe({
+    next: (users) => {
+      const user = users.find(u => u.email === email);
+
+      if (!user) {
+        console.error('User not found');
+        return;
+      }
+
+      const updatedUser: User = {
+        ...user,
+        password: newPassword
+      };
+
+      this._HttpClient
+        .put<User>(`${this.base_url}users/${user.id}`, updatedUser)
+        .subscribe({
+          next: () => console.log('Password updated successfully'),
+          error: err => console.error(err)
+        });
+    },
+    error: err => console.error(err)
+  });
+  this._Router.navigate(['/login'])
+}
 }
