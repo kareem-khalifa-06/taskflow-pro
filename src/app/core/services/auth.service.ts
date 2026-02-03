@@ -49,8 +49,9 @@ export class AuthService {
     );
   }
   logout() {
-    localStorage.removeItem('currentUser');
-    localStorage.removeItem('accessToken');
+    localStorage.clear();
+    this.authenticationState.next(false);
+    this._Router.navigate(['/login']);
   }
   refreshToken(): string | null {
     const token = this.getToken();
