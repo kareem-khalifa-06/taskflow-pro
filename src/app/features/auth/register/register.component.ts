@@ -92,8 +92,11 @@ export class RegisterComponent {
     )
   }
   toggleShowPassword2(){
-    this.showPassword=!this.showPassword;
-    console.log(this.showPassword
-    )
+    this.showPassword2=!this.showPassword2;
+    console.log('clicked')
+    this._AuthService.refreshToken();
+    
   }
 }
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiOWQ5NjFlNS00MGFhLTRhNmMtYTQ4Ny0wODFjMTZmNDk1NzkiLCJlbWFpbCI6ImtoYWRpamFlbGJha3J5MTlAZ21haWwuY29tIiwicm9sZSI6Im1lbWJlciIsImV4cCI6MTc3MDEyNjg0Mn0=.ZmFrZS1zaWduYXR1cmU=
+//
