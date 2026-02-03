@@ -61,6 +61,7 @@ export class LoginComponent {
   }
   toggleShowPassword(){
     this.showPassword=!this.showPassword;
+    console.log(this._AuthService.getCurrentUser());
   }
  
 }

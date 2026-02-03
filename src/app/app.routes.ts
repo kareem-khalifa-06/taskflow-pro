@@ -1,4 +1,6 @@
-import { Routes } from '@angular/router';
+import { Routes, CanActivateFn } from '@angular/router';
+import { authGuard } from './core/guards/auth.guard';
+import { roleGuard } from './core/guards/role.guard';
 
 export const routes: Routes = [
   {
@@ -29,6 +31,15 @@ export const routes: Routes = [
         (m) => m.ForgotPasswordComponent,
       ),
     title: 'Forgot Password',
+  },
+  {
+    path: 'home',
+    loadComponent: () =>
+      import('../app/features/auth/forgotPassword/forgotPassword.component').then(
+        (m) => m.ForgotPasswordComponent,
+      ),
+    title: 'Forgot Password',
+    canActivate:[authGuard,roleGuard]
   },
  
   {

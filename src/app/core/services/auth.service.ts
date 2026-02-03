@@ -42,7 +42,7 @@ export class AuthService {
         console.log('stored in localstorage');
         this.authenticationState.next(true);
         if (this.isAuthenticated$) {
-          this._Router.navigate(['/Home']);
+          this._Router.navigate(['/home']);
         }
         return { token, user };
       }),
