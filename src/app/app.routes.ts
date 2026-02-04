@@ -35,10 +35,10 @@ export const routes: Routes = [
   {
     path: 'home',
     loadComponent: () =>
-      import('../app/features/auth/forgotPassword/forgotPassword.component').then(
-        (m) => m.ForgotPasswordComponent,
+      import('../app/shared/components/layout/layout.component').then(
+        (m) => m.LayoutComponent,
       ),
-    title: 'Forgot Password',
+    title: 'Home Page',
     canActivate:[authGuard,roleGuard]
   },
  

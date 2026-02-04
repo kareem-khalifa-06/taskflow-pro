@@ -12,4 +12,10 @@ export class UsersService {
   getAllUsers(): Observable<User[]> {
     return this._HttpClient.get<User[]>(this.base_url + 'users');
   }
+  getCurrentUser(){
+    return localStorage.getItem('currentUser')
+  }
+  updateProfile(newUser:User):Observable<User>{
+     return this._HttpClient.put<User>(this.base_url+`/users/${newUser.id}`,newUser)
+  }
 }

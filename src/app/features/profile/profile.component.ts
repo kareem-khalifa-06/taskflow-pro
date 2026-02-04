@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,5 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
-
+  constructor(private _ReactiveFormsModule:ReactiveFormsModule){
+    
+  }
+  
 }
